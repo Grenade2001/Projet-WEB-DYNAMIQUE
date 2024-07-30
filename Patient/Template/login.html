@@ -1,0 +1,38 @@
+
+{% include 'base.html' %}
+
+
+            {% block content%}
+            {% if error == "no" %}
+        
+            <script>
+                alert('logged successfuly');
+                window.location = "{% url 'dasbord' %}";
+            </script>
+            {% endif%}
+            {% if error == "yes" %}
+            <script>
+                alert('invalid login');
+            </script>
+            {% endif %}
+            
+            <div class="container text-center">
+                <h1> <br> </h1>
+                <h1> <br> </h1>
+                <h1> <br> </h1>
+                <h2 class="display-5 mb-4 text-center">Admin login</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <p>Admin Name</p> 
+                    <input type="text" class="from-control w-60" name="uname">
+                    <p> Password</p>
+                    <input type="password" class="from-control w-60" name="pwd">
+                    <p></p>
+                    <input type="submit" value="login" class="form-control btn btn-primary w-25">
+                </form>
+            </div>
+            {% endblock content%}
+
+
+
+       
